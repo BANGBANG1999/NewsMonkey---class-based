@@ -1,8 +1,7 @@
-   import React, { Component } from 'react';
+   import React from 'react';
 
-export default class NewsItem extends Component {
-  render() {
-    const { title, description, imageUrl, url, author, date, source } = this.props;
+const NewsItem = (props) => {
+    const { title, description, imageUrl, url, author, date, source } = props;
 
     const cardStyle = {
       height: '500px', // Set your desired height
@@ -21,7 +20,7 @@ export default class NewsItem extends Component {
       <>
         <div className="card" style={cardStyle}>
         <div className="container" style={{display: "flex", justifyContent: "flex-end", margin:0, padding: 0, position: "absolute", right: 0}}>
-          <span class="badge rounded-pill bg-danger">
+          <span className="badge rounded-pill bg-danger">
             {source}
           </span>
           </div>
@@ -30,7 +29,7 @@ export default class NewsItem extends Component {
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
             <p className="card-text">{description}...</p>
-            <p class="card-text"><small class="text-body-secondary">By {author ? author : "Unknown"} on {new Date(date).toGMTString()}</small></p>
+            <p className="card-text"><small class="text-body-secondary">By {author ? author : "Unknown"} on {new Date(date).toGMTString()}</small></p>
             <a
               rel="noreferrer"
               href={url}
@@ -44,9 +43,8 @@ export default class NewsItem extends Component {
         </div>
       </>
     );
-  }
 }
-
+export default NewsItem
 
 //Alternate solution:
 
